@@ -20,7 +20,10 @@ class Web:
 		products   = collection.get("products", "")
 		types      = collection.get("type", "")
 		for country in countrys:
-			url = self.baseURL + "/" + directory + "/" + types + "/" + products + "/" + country
+			if types == "":
+				url = self.baseURL + "/" + directory + "/" + products + "/" + country
+			else:
+				url = self.baseURL + "/" + directory + "/" + types + "/" + products + "/" + country
 			print url
 			if "/" in country:
 				country = country.replace("/", "_")
@@ -110,7 +113,7 @@ class Hander:
 
 class  Capsule(object):
 	def __init__(self):
-		self.msgPackFileName = "Cell"
+		self.msgPackFileName = "panel"
 
 	def collect(self, web, hander):
 		countryUrls = web.getCountryUrls()
