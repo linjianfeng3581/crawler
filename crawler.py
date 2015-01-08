@@ -7,6 +7,7 @@ import platform
 import sys
 from xlsxwriter.workbook import Workbook
 
+# 链接生成方式
 class Web:
 	def __init__(self):
 		self.baseURL = u"http://www.enf.com.cn"
@@ -30,6 +31,7 @@ class Web:
 			items.append({"country": country, "url": url})
 		return items
 
+# 爬虫的动作
 class Hander:
 	def __init__(self):
 		self.userAgent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
@@ -111,6 +113,7 @@ class Hander:
 			items.append(self.getSinglePageInfo(url))
 		return items
 
+# 爬虫处理信息的胶囊
 class  Capsule(object):
 	def __init__(self):
 		self.msgPackFileName = "panel"
@@ -140,7 +143,7 @@ class  Capsule(object):
 				row += 1
 			workbook.close()
 
-		
+# 爬虫	
 class Spider:
 	def __init__(self):
 		self.web = Web()
