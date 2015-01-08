@@ -31,10 +31,10 @@ class Hander:
 		self.userAgent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 		self.baseURL   = u"http://www.enf.com.cn"
 		self.reNextURL = '<a href="(.*?)" class="blackmid">(.*?)</a>'
-		self.reCompany = ''
-		self.reAddress = ''
-		self.reWebsite = ''
-		self.rePhone   = ''
+		self.reCompany = 'itemprop="name">(.*?)</h1>'
+		self.reAddress = 'itemprop="streetAddress">(.*?)</span>'
+		self.reWebsite = '<a href="([a-zA-z]+://[^\s]*)" target="_blank" class="midtext" itemprop="url">'
+		self.rePhone   = '(\+[\d|\s]{6,})'
 
 	def getValue(self, list):
 		if len(list) != 0:
