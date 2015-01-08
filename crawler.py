@@ -5,6 +5,7 @@ import json
 import os
 import platform
 import sys
+from xlsxwriter.workbook import Workbook
 
 class Web:
 	def __init__(self):
@@ -108,14 +109,34 @@ class Hander:
 		return items
 
 class  Capsule(object):
+	def __init__(self):
+		self.msgPackFileName = "Cell"
 
 	def collect(self, web, hander):
 		countryUrls = web.getCountryUrls()
 		for country in countryUrls:
-			print "-----------------,", country["country"], "-------------------"
+			print "-----------------", country["country"], "-------------------"
 			print country
 			items = hander.getCompanyInfoCollection(country)
-			print items
+			workbook = Workbook(self.msgPackFileName + "/" + country["country"] + ".xlsx")
+			worksheet = workbook.add_worksheet()
+			worksheet.set_column("A:B", 60)
+			row = 1
+			col = 0
+			worksheet.write(0, col, u"公司名称")
+			worksheet.write(0, col + 1, u"公司地址")
+			worksheet.write(0, col + 2, u"公司网站")
+			worksheet.write(0, col + 3, u"公司电话")
+			worksheet.write(0, col + 4, u"传真")
+			for item in items:
+				worksheet.write(row, col, item['company'])
+				worksheet.write(row, col + 1, item['address'])
+				worksheet.write(row, col + 2, item['website'])
+				worksheet.write(row, col + 3, item['phone'])
+				worksheet.write(row, col + 4, item['sendphone'])
+				row += 1
+			workbook.close()
+
 		
 class Spider:
 	def __init__(self):
