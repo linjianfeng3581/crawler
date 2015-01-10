@@ -1,6 +1,6 @@
 {
 	"directory": "directory",
-	"type": "material", 
-	"products": "cell", 
-	"countrys": ["China","China/2", "Germany", "Italy", "Spain", "other_europe", "India", "Japan", "other_apac", "United%20States", "other_americas", "Middle%20East"]
+	"type": "", 
+	"products": "panel", 
+	"countrys": ["China/3", "China/4", "China/5", "China/6", "Taiwan", "Germany", "Italy", "Spain", "other_europe", "India", "Korea", "Japan", "other_apac", "United%20States", "other_americas", "Middle%20East"]
 }
