@@ -2,10 +2,8 @@
 import urllib2
 import re
 import json
-import os
-import platform
-import sys
 from xlsxwriter.workbook import Workbook
+
 
 # 链接生成方式
 class Web:
