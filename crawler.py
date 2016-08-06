@@ -29,6 +29,7 @@ class Web:
 			items.append({"country": country, "url": url})
 		return items
 
+
 # 爬虫的动作
 class Hander:
 	def __init__(self):
@@ -85,7 +86,7 @@ class Hander:
 		infoItem['company'] = self.getValue(companyList)
 		infoItem['address'] = self.getValue(addressList)
 		infoItem['website'] = self.getValue(websiteList)
-		infoItem['phone']   = self.getValue(phoneList)
+		infoItem['phone'] = self.getValue(phoneList)
 		infoItem['sendphone'] = self.getSendPhoneValue(phoneList)
 		return infoItem
 
